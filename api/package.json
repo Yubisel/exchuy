@@ -1,20 +1,36 @@
 {
-  "name": "exchuy",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.0.0",
-    "express": "^4.17.2",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  }
+    "name": "exchuy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/server.js",
+    "scripts": {
+        "server": "nodemon src/server.js"
+    },
+    "engines": {
+        "node": ">=16.13.2"
+    },
+    "keywords": [],
+    "author": "Ing. Yubisel Vega Alvarez",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Yubisel/exchuy"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.0",
+        "express": "^4.17.2",
+        "module-alias": "^2.2.2",
+        "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    },
+    "_moduleAliases": {
+        "@basePath": "src",
+        "@config": "src/config",
+        "@routes": "src/routes",
+        "@controllers": "src/controllers",
+        "@models": "src/models"
+    }
 }
