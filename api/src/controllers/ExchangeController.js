@@ -1,27 +1,24 @@
 const Controller = require("./Controller");
-const { DONE, CONFLICT, NOT_VALID, NOT_FOUND } = require("@config/StatusCode");
+const { DONE, CONFLICT } = require("@config/StatusCode");
+const CotizationDolar = require("@models/CotizationDolar");
+const BROU = require("@models/BROU");
 
 
 class ExchangeController extends Controller {
   constructor() {
     super();
+    this.oCotizationDolar = new CotizationDolar();
+    this.oBROU = new BROU();
   }
 
-  getExchanges = async(oRequest, oResponse) => {
+  getExchanges = async (oRequest, oResponse) => {
     try {
-      // const nId = oRequest.params.nId;
-      // if (!nId)
-      //   return this.respond(oResponse, NOT_VALID);
-      // Model.find(nId, (oEmployee, bIsError = false) => {
-      //   if (bIsError)
-      //     return this.respond(oResponse, CONFLICT, null, oEmployee);
-      //   if (!oEmployee)
-      //     return this.respond(oResponse, NOT_FOUND, { message: "Empleado no encontrado" });
-      //   (new ServiceController()).getServicesByEmployee(oEmployee.id, aServices => {
-      //     return this.respond(oResponse, DONE, { data: aServices });
-      //   });
-      // });
-      this.respond(oResponse, DONE, {pepe: "sdasdad"});
+      let aChangesValues = [];
+
+      aChangesValues.push(await this.oCotizationDolar.getExchange());
+      aChangesValues.push(await this.oBROU.getExchange());
+
+      this.respond(oResponse, DONE, aChangesValues);
     } catch (oException) {
       return this.respond(oResponse, CONFLICT, null, oException.message);
     }
