@@ -33,8 +33,9 @@ class BROU {
   }
 
   getExchange = async () => {
-    let sCoin, sPurchase, sSale, 
-    _self = this;
+    let sCoin, sPurchase, sSale; 
+    const _self = this;
+    this.exchangesRates = [];
 
     const oCall = await axios({
       method: this.method,

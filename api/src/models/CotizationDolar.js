@@ -37,8 +37,9 @@ class CotizationDolar {
   }
 
   getExchange = async () => {
-    let sPurchase, sSale, 
-    _self = this;
+    let sPurchase, sSale;
+    const _self = this;
+    this.exchangesRates = [];
 
     const oCall = await axios({
       method: this.method,
