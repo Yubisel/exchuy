@@ -4,7 +4,8 @@ const { DONE } = require("@config/StatusCode");
 
 class CotizationDolar {
   constructor() {
-    this.siteName = "";
+    this.id = "cotizuy";
+    this.siteName = "Cotización Dolar";
     this.method = "GET";
     this.url = "https://uy.cotizacion-dolar.com/cotizacion-hoy-uruguay.php";
     this.headers = [
