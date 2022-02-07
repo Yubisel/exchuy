@@ -33,7 +33,7 @@ class CotizationDolar {
 
       }
     ];
-    this.excahngesRates = [];
+    this.exchangesRates = [];
   }
 
   getExchange = async () => {
@@ -50,7 +50,7 @@ class CotizationDolar {
       $("[itemprop=itemListElement]", ".cotizacion-contenido").each(function () {
         sPurchase = Number($(this).find(".cc-2b .cotizacion-num").text().replace("$ ", "").trim());
         sSale = Number($(this).find(".cc-3b .cotizacion-num").text().replace("$ ", "").trim());
-        _self.excahngesRates.push({
+        _self.exchangesRates.push({
           initial: $(this).find(".cotizacion-billete").prop("content"),
           name: $(this).find(".cotizacion-billete b").text(),
           purchase: sPurchase,
@@ -64,7 +64,7 @@ class CotizationDolar {
       siteName: this.siteName,
       url: this.url,
       headers: this.headers,
-      excahngesRates: this.excahngesRates
+      exchangesRates: this.exchangesRates
     };
 
   }

@@ -13,12 +13,10 @@ class ExchangeController extends Controller {
 
   getExchanges = async (oRequest, oResponse) => {
     try {
-      let aChangesValues = [];
-
-      aChangesValues.push(await this.oCotizationDolar.getExchange());
-      aChangesValues.push(await this.oBROU.getExchange());
-
-      this.respond(oResponse, DONE, aChangesValues);
+      this.respond(oResponse, DONE, [
+        await this.oCotizationDolar.getExchange(),
+        await this.oBROU.getExchange()]
+      );
     } catch (oException) {
       return this.respond(oResponse, CONFLICT, null, oException.message);
     }

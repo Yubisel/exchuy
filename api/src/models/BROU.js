@@ -29,7 +29,7 @@ class BROU {
 
       }
     ];
-    this.excahngesRates = [];
+    this.exchangesRates = [];
   }
 
   getExchange = async () => {
@@ -49,7 +49,7 @@ class BROU {
         if (sCoin !== "") {
           sPurchase = Number($(this).find(".valor").eq(0).text().replace(",", ".").trim());
           sSale = Number($(this).find(".valor").eq(1).text().replace(",", ".").trim());
-          _self.excahngesRates.push({
+          _self.exchangesRates.push({
             name: sCoin,
             purchase: sPurchase,
             sale: sSale,
@@ -63,7 +63,7 @@ class BROU {
       siteName: this.siteName,
       url: this.url,
       headers: this.headers,
-      excahngesRates: this.excahngesRates
+      exchangesRates: this.exchangesRates
     };
 
   }
